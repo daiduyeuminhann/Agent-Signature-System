@@ -1,0 +1,56 @@
+{
+    "$schema_version": "1.0",
+  
+    "metadata": {
+      "project_name": "string",
+      "generated_at": "datetime",
+      "updated_at": "datetime",
+      "generated_by": "string",
+      "confidence": "float"
+    },
+  
+    "project": {
+      "summary": "string",
+      "goals": ["string"]
+    },
+  
+    "business": {
+      "actors": ["string"],
+      "flows": ["string"],
+      "constraints": ["string"]
+    },
+  
+    "architecture": {
+      "style": "string",
+      "domains": ["string"],
+      "components": ["string"]
+    },
+  
+    "domain_model": {
+      "entities": ["string"],
+      "relationships": ["string"]
+    },
+  
+    "rules": ["string"],
+  
+    "decisions": [
+      {
+        "id": "string",
+        "decision": "string",
+        "reason": "string"
+      }
+    ],
+  
+    "risks": [
+      {
+        "name": "string",
+        "impact": "string"
+      }
+    ],
+  
+    "known_facts": ["string"],
+  
+    "unknowns": ["string"],
+  
+    "next_actions": ["string"]
+  }
