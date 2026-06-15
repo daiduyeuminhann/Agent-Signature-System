@@ -1,24 +1,53 @@
 import { z } from "zod";
 
-export const plannerSchema = z.object({
-  target: z.array(z.string()),
+const dynamicNode =
+  z.record(z.any());
 
-  frontend: z.object({
-    framework: z.string().nullable()
-  }),
+export const plannerSchema =
+  z.object({
 
-  backend: z.object({
-    language: z.string().nullable(),
-    framework: z.string().nullable()
-  }),
+    domains:
+      z.object({
 
-  database: z.string().nullable(),
+      presentation:
+        dynamicNode,
 
-  devops: z.array(z.string()),
+      application:
+        dynamicNode,
 
-  complexity: z.enum([
-    "low",
-    "medium",
-    "high"
-  ])
+      persistence:
+        dynamicNode,
+
+      architecture:
+        dynamicNode,
+
+      infrastructure:
+        dynamicNode,
+
+      integration:
+        dynamicNode,
+
+      concepts:
+        dynamicNode
+    }),
+
+    requirements:
+      z.array(z.string()),
+
+    constraints:
+      z.array(z.string()),
+
+    metadata:
+      z.object({
+
+        complexity:
+          z.string(),
+
+        project_type:
+          z.string()
+          .nullable(),
+
+        confidence:
+          z.number()
+      })
 });

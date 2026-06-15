@@ -1,12 +1,24 @@
-export function parseJson(text) {
+export function parseJson(data) {
+
+  // already object
+  if (
+    typeof data === "object"
+  ) {
+    return data;
+  }
 
   try {
-    return JSON.parse(text);
+
+    return JSON.parse(data);
+
   } catch (err) {
 
-    const cleaned = text
+    const cleaned = data
+
       .replace(/```json/g, "")
+
       .replace(/```/g, "")
+
       .trim();
 
     return JSON.parse(cleaned);
