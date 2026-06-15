@@ -1,30 +1,13 @@
 import Fastify from "fastify";
+import agentRoute from "./routes/agentRoute.js";
 
-import plannerRoute 
-from "./routes/plannerRoute.js";
+const fastify = Fastify({ logger: true });
 
-const fastify = Fastify({
-  logger: true
-});
-
-await fastify.register(
-  plannerRoute
-);
+fastify.register(agentRoute);
 
 try {
-
-  await fastify.listen({
-    port: 3000,
-    host: "0.0.0.0"
-  });
-
-  console.log(
-    "Server running on port 3000"
-  );
-
+  await fastify.listen({ port: 3000, host: "0.0.0.0" });
 } catch (err) {
-
   fastify.log.error(err);
-
   process.exit(1);
 }
